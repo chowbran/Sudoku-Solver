@@ -6,9 +6,9 @@ import java.util.List;
  * Created by BscitXPS on 6/15/2016.
  */
 public class SudokuCell {
-    private List<Integer> horizontalGroup;
-    private List<Integer> verticalGroup;
-    private List<Integer> cellGroup;
+    private List<SudokuCell> horizontalGroup;
+    private List<SudokuCell> verticalGroup;
+    private List<SudokuCell> cellGroup;
     private boolean finalized = false;
     private Integer value;
 
@@ -19,10 +19,22 @@ public class SudokuCell {
         finalize();
     }
 
-    public void setGroups(List<Integer> h, List<Integer> v, List<Integer> c) {
+    public void setGroups(List<SudokuCell> h, List<SudokuCell> v, List<SudokuCell> c) {
         horizontalGroup = h;
         verticalGroup = v;
         cellGroup = c;
+    }
+
+    public void setCellGroup(List<SudokuCell> c) {
+        cellGroup = c;
+    }
+
+    public void setVerticalGroup(List<SudokuCell> v) {
+        verticalGroup = v;
+    }
+
+    public void setHorizontalGroup(List<SudokuCell> h) {
+        horizontalGroup = h;
     }
 
     public void finalize() {
