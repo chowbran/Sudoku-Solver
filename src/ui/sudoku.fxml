@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="526.0" prefWidth="3.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar prefHeight="32.0" prefWidth="246.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="494.0" prefWidth="282.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane prefHeight="312.0" prefWidth="287.0">
+               <children>
+                  <GridPane id="grdSudoku01" gridLinesVisible="true" layoutX="99.0" layoutY="14.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku00" gridLinesVisible="true" layoutX="9.0" layoutY="14.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField id="txt00" alignment="CENTER" text="2" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku10" gridLinesVisible="true" layoutX="9.0" layoutY="104.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku20" gridLinesVisible="true" layoutX="9.0" layoutY="194.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku11" gridLinesVisible="true" layoutX="99.0" layoutY="104.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku21" gridLinesVisible="true" layoutX="99.0" layoutY="194.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku02" gridLinesVisible="true" layoutX="189.0" layoutY="14.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku12" gridLinesVisible="true" layoutX="189.0" layoutY="104.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane id="grdSudoku22" gridLinesVisible="true" layoutX="189.0" layoutY="194.0" prefHeight="84.0" prefWidth="68.0">
+                     <children>
+                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Rectangle arcHeight="5.0" arcWidth="3.0" fill="DODGERBLUE" height="270.0" layoutX="97.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="3.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="3.0" fill="DODGERBLUE" height="270.0" layoutX="187.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="3.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="3.0" fill="DODGERBLUE" height="270.0" layoutX="142.0" layoutY="-30.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="3.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="270.0" layoutX="143.0" layoutY="59.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="3.0" />
+               </children>
+            </Pane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
