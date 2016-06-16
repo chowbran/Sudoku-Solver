@@ -22,11 +22,36 @@ public class Sudoku {
 
         for (int i = 0; i < size; i+=1) {
             for (int j = 0; j < size; j+=1) {
-                mat[i][j] = new SudokuCell();
+                mat[i][j] = new SudokuCell(size);
             }
         }
 
+        _initGroups();
+    }
 
+    public Sudoku(Integer[][] preset) throws SudokuException {
+        if (preset.length != preset[0].length) {
+            // Not a square matrix
+            throw new SudokuException();
+        }
+
+        this.size = preset.length;
+        mat = new SudokuCell[size][size];
+
+        for (int i = 0;  i < size; i+=1) {
+            for (int j = 0; j < size; j+=1) {
+                if (preset[i][j] != null) {
+                    mat[i][j] = new SudokuCell(size, preset[i][j]);
+                } else {
+                    mat[i][j] = new SudokuCell(size);
+                }
+            }
+        }
+
+        _initGroups();
+    }
+
+    private void _initGroups() {
         int smallSize = (int) Math.sqrt(size);
 
         // 00 01 02 10 11 12 20 21 22
@@ -58,27 +83,39 @@ public class Sudoku {
             }
         }
 
-
-    }
-
-    public Sudoku(Integer[][] preset) throws SudokuException {
-        if (preset.length != preset[0].length) {
-            // Not a square matrix
-            throw new SudokuException();
-        }
-
-        this.size = preset.length;
-        mat = new SudokuCell[size][size];
-
-        for (int i = 0;  i < size; i+=1) {
+        for (int i = 0; i < size; i+=1) {
+            List<SudokuCell> tempGroup = new ArrayList<>();
             for (int j = 0; j < size; j+=1) {
-                if (preset[i][j] != null) {
-                    mat[i][j] = new SudokuCell(preset[i][j]);
-                } else {
-                    mat[i][j] = new SudokuCell();
-                }
+                tempGroup.add(mat[i][j]);
+            }
+
+            for (SudokuCell sCell : tempGroup) {
+                sCell.setHorizontalGroup(tempGroup);
             }
         }
+
+        for (int i = 0; i < size; i+=1) {
+            List<SudokuCell> tempGroup = new ArrayList<>();
+            for (int j = 0; j < size; j+=1) {
+                tempGroup.add(mat[j][i]);
+            }
+
+            for (SudokuCell sCell : tempGroup) {
+                sCell.setVerticalGroup(tempGroup);
+            }
+        }
+    }
+
+    public boolean isValid() {
+        boolean ret = true;
+
+        for (SudokuCell[] row : mat) {
+            for (SudokuCell sCell : row) {
+                ret &= sCell.isValid();
+            }
+        }
+
+        return ret;
     }
 }
 

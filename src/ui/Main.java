@@ -38,7 +38,7 @@ public class Main extends Application {
 //                temp = grid
 //                groups.add(temp);
 //            }
-        }
+//        }
     }
 
 
