@@ -69,8 +69,21 @@ public class SudokuCell implements Comparable<SudokuCell> {
         finalized = true;
     }
 
-    public void setValue(int value) {
+    public void assignValue(int value) {
         this.value = value;
+        this.updateDomain();
+
+        for (SudokuCell sC : cellGroup) {
+            sC.updateDomain();
+        }
+
+        for (SudokuCell sC : horizontalGroup) {
+            sC.updateDomain();
+        }
+
+        for (SudokuCell sC : verticalGroup) {
+            sC.updateDomain();
+        }
     }
 
     public int getValue() {
@@ -86,11 +99,25 @@ public class SudokuCell implements Comparable<SudokuCell> {
                 sC.updateDomain();
             }
 
+            for (SudokuCell sC : horizontalGroup) {
+                sC.updateDomain();
+            }
+
+            for (SudokuCell sC : verticalGroup) {
+                sC.updateDomain();
+            }
+
             value = null;
         }
     }
 
     public void updateDomain() {
+        // If a value is already assigned to this cell, then the domain is empty
+        if (this.value != null) {
+            this.domain = new HashSet<>();
+            return;
+        }
+
         this.domain = new HashSet<>();
         List<Integer> temp = new ArrayList<>();
 

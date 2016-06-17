@@ -1,7 +1,6 @@
 package ui;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by BscitXPS on 6/15/2016.
@@ -116,6 +115,61 @@ public class Sudoku {
         }
 
         return ret;
+    }
+
+    public void solve() {
+        Map<Integer,List<SudokuCell>> smallestDomains = new HashMap<>();
+        Map<Integer,List<SudokuCell>> highestDegrees = new HashMap<>();
+        SudokuCell activeCell;
+        int smallestDomainSize = size;
+
+        // Creating a Map with Integer keys and List of SudokuCell values
+        for (SudokuCell[] row : mat) {
+            for (SudokuCell sCell : row) {
+                int domainSize = sCell.domainSize();
+                if (domainSize > 0) {
+                    if (smallestDomains.containsKey(domainSize)) {
+                        smallestDomains.get(domainSize).add(sCell);
+                    } else {
+                        smallestDomains.put(domainSize, new ArrayList<>());
+                    }
+                }
+            }
+        }
+
+
+        for (int domSize : smallestDomains.keySet()) {
+            if (domSize < smallestDomainSize) {
+                smallestDomainSize = domSize;
+            }
+        }
+
+        List<SudokuCell> candidates = smallestDomains.get(smallestDomainSize);
+
+
+        int highestDegree;
+        int degree;
+
+        if (candidates.size() > 1) {
+            // If there is a tie for the smallest domain, choose the one with the highest degree
+            activeCell = candidates.get(0); // Init activeCell
+            highestDegree = candidates.get(0).degree();
+            for (SudokuCell sCell : candidates) {
+                degree = sCell.degree();
+                if (degree > highestDegree) {
+                    highestDegree = degree;
+                    activeCell = sCell;
+                }
+            }
+        } else {
+            // If there is no tie for the smallest domain, simply choose the smallest domain
+            activeCell = smallestDomains.get(smallestDomainSize).get(0);
+        }
+
+        Set<Integer> domain = activeCell.getDomain();
+        int choose = (Integer) domain.toArray()[0];
+
+        activeCell.assignValue(choose);
     }
 }
 
