@@ -102,14 +102,10 @@ public class Main extends Application {
             }
         }
 
-        for (int i = 0; i < 9; i+=1) {
-            for (int j = 0; j < 9; j+=1) {
-                System.out.print(preset[i][j]);
-            }
-            System.out.println();
-        }
-
         sudoku = new Sudoku(preset);
+        System.out.println(sudoku.solve());
+        System.out.println(sudoku);
+        System.out.println("Done");
     }
 
 

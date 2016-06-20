@@ -63,11 +63,11 @@
                            </font></TextField>
                         <TextField alignment="CENTER" GridPane.columnIndex="2" />
                         <TextField alignment="CENTER" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="1" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" />
                      </children>
                      <columnConstraints>
@@ -84,15 +84,15 @@
                   <GridPane id="grdSudoku00" gridLinesVisible="true" layoutX="9.0" layoutY="14.0" prefHeight="84.0" prefWidth="68.0">
                      <children>
                         <TextField alignment="CENTER" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" text="1" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" text="2" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" text="8" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="7" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField id="txt00" alignment="CENTER" text="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField id="txt00" alignment="CENTER" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -109,13 +109,13 @@
                      <children>
                         <TextField alignment="CENTER" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" text="6" GridPane.columnIndex="2" />
                         <TextField alignment="CENTER" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="4" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" />
                      </children>
                      <columnConstraints>
@@ -134,13 +134,13 @@
                         <TextField alignment="CENTER" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="2" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" text="2" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="5" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="6" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -156,15 +156,15 @@
                   <GridPane id="grdSudoku11" gridLinesVisible="true" layoutX="99.0" layoutY="104.0" prefHeight="84.0" prefWidth="68.0">
                      <children>
                         <TextField alignment="CENTER" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" text="8" GridPane.columnIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="2" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" text="7" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" text="4" />
+                        <TextField alignment="CENTER" text="5" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -180,15 +180,15 @@
                   <GridPane id="grdSudoku21" gridLinesVisible="true" layoutX="99.0" layoutY="194.0" prefHeight="84.0" prefWidth="68.0">
                      <children>
                         <TextField alignment="CENTER" />
-                        <TextField alignment="CENTER" text="8" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" text="8" GridPane.columnIndex="2" />
                         <TextField alignment="CENTER" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" text="9" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -204,15 +204,15 @@
                   <GridPane id="grdSudoku02" gridLinesVisible="true" layoutX="189.0" layoutY="14.0" prefHeight="84.0" prefWidth="68.0">
                      <children>
                         <TextField alignment="CENTER" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="1" />
+                        <TextField alignment="CENTER" text="9" GridPane.columnIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="2" />
                         <TextField alignment="CENTER" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="4" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -233,10 +233,10 @@
                         <TextField alignment="CENTER" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="2" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" />
+                        <TextField alignment="CENTER" text="3" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -253,12 +253,12 @@
                      <children>
                         <TextField alignment="CENTER" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" text="9" GridPane.columnIndex="2" />
                         <TextField alignment="CENTER" GridPane.rowIndex="1" />
                         <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="31.0" prefWidth="72.0" text="4" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" text="8" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <TextField alignment="CENTER" />
                      </children>

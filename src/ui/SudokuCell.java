@@ -23,7 +23,7 @@ public class SudokuCell implements Comparable<SudokuCell> {
         List<Integer> domainList = new ArrayList<>();
 
         for (int i = 0; i < size; i+=1) {
-            domainList.add(i);
+            domainList.add(i + 1); // 1 based
         }
 
         domain.addAll(domainList);
@@ -33,7 +33,7 @@ public class SudokuCell implements Comparable<SudokuCell> {
         this(size);
 
         this.value = value;
-        finalize();
+        this.finalize();
 
         domain.remove(value);
     }
@@ -87,12 +87,20 @@ public class SudokuCell implements Comparable<SudokuCell> {
     }
 
     public int getValue() {
+        if (value == null) {
+            return 0;
+        }
         return value;
+    }
+
+    public boolean isFinalized() {
+        return finalized;
     }
 
     public void clear() {
         if (!finalized) {
             // Add the value back into the domain
+            value = null;
             this.updateDomain();
 
             for (SudokuCell sC : cellGroup) {
@@ -107,7 +115,6 @@ public class SudokuCell implements Comparable<SudokuCell> {
                 sC.updateDomain();
             }
 
-            value = null;
         }
     }
 
@@ -122,7 +129,7 @@ public class SudokuCell implements Comparable<SudokuCell> {
         List<Integer> temp = new ArrayList<>();
 
         for (int i = 0; i < size; i+=1) {
-            temp.add(i);
+            temp.add(i + 1); // 1 based
         }
 
         this.domain.addAll(temp);
@@ -147,19 +154,19 @@ public class SudokuCell implements Comparable<SudokuCell> {
         Collections.sort(verticalGroup);
 
         for (int i = 0; i < cellGroup.size()-1; i+=1) {
-            if (cellGroup.get(i).equals(cellGroup.get(i+1))) {
+            if (cellGroup.get(i).getValue() > 0 && cellGroup.get(i).equals(cellGroup.get(i+1))) {
                 return false;
             }
         }
 
         for (int i = 0; i < horizontalGroup.size()-1; i+=1) {
-            if (horizontalGroup.get(i).equals(horizontalGroup.get(i+1))) {
+            if (horizontalGroup.get(i).getValue() > 0 &&horizontalGroup.get(i).equals(horizontalGroup.get(i+1))) {
                 return false;
             }
         }
 
         for (int i = 0; i < verticalGroup.size()-1; i+=1) {
-            if (verticalGroup.get(i).equals(verticalGroup.get(i+1))) {
+            if (verticalGroup.get(i).getValue() > 0 &&verticalGroup.get(i).equals(verticalGroup.get(i+1))) {
                 return false;
             }
         }
@@ -181,7 +188,7 @@ public class SudokuCell implements Comparable<SudokuCell> {
 
     @Override
     public int compareTo(SudokuCell o) {
-        return this.value - o.getValue();
+        return this.getValue() - o.getValue();
     }
 
     @Override
