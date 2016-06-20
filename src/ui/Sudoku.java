@@ -137,7 +137,6 @@ public class Sudoku {
             }
         }
 
-
         for (int domSize : smallestDomains.keySet()) {
             if (domSize < smallestDomainSize) {
                 smallestDomainSize = domSize;
