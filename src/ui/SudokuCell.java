@@ -93,6 +93,14 @@ public class SudokuCell implements Comparable<SudokuCell> {
         return value;
     }
 
+    public void setValue(int value) {
+        if (value == 0)  {
+            this.value = null;
+        } else {
+            this.value = value;
+        }
+    }
+
     public boolean isFinalized() {
         return finalized;
     }
@@ -120,7 +128,7 @@ public class SudokuCell implements Comparable<SudokuCell> {
 
     public void updateDomain() {
         // If a value is already assigned to this cell, then the domain is empty
-        if (this.value != null) {
+        if (this.getValue() > 0) {
             this.domain = new HashSet<>();
             return;
         }
@@ -160,19 +168,20 @@ public class SudokuCell implements Comparable<SudokuCell> {
         }
 
         for (int i = 0; i < horizontalGroup.size()-1; i+=1) {
-            if (horizontalGroup.get(i).getValue() > 0 &&horizontalGroup.get(i).equals(horizontalGroup.get(i+1))) {
+            if (horizontalGroup.get(i).getValue() > 0 && horizontalGroup.get(i).equals(horizontalGroup.get(i+1))) {
                 return false;
             }
         }
 
         for (int i = 0; i < verticalGroup.size()-1; i+=1) {
-            if (verticalGroup.get(i).getValue() > 0 &&verticalGroup.get(i).equals(verticalGroup.get(i+1))) {
+            if (verticalGroup.get(i).getValue() > 0 && verticalGroup.get(i).equals(verticalGroup.get(i+1))) {
                 return false;
             }
         }
 
         return true;
     }
+
 
     public int domainSize() {
         return domain.size();

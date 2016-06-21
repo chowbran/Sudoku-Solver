@@ -6,6 +6,17 @@ import java.util.*;
  * Created by BscitXPS on 6/15/2016.
  */
 public class Sudoku {
+    private Integer[][] correct = {
+            {5,1,2,8,6,3,4,9,7},
+            {8,6,9,4,7,5,1,2,3},
+            {7,4,3,1,9,2,5,8,6},
+            {1,2,6,9,8,4,3,7,5},
+            {3,8,7,5,2,6,9,4,1},
+            {9,5,4,3,1,7,2,6,8},
+            {6,3,1,2,4,8,7,5,9},
+            {2,9,8,7,5,1,6,3,4},
+            {4,7,5,6,3,9,8,1,2}
+    };
 
     private int size;
     private SudokuCell mat[][]; //;
@@ -128,15 +139,32 @@ public class Sudoku {
         return ret;
     }
 
+
+    public boolean isFinished() {
+        boolean ret = true;
+        if (!isValid()) {
+            return false;
+        }
+
+        for (SudokuCell[] row : mat) {
+            for (SudokuCell sCell : row) {
+                ret &= sCell.getValue() > 0;
+            }
+        }
+
+        return ret;
+    }
+
     public boolean solve() {
         return solve(this.getSudokuCells());
     }
 
     public boolean solve(SudokuCell[][] sudoCells) {
-        Map<Integer,List<SudokuCell>> smallestDomains = new HashMap<>();
+        Map<Integer,List<SudokuCell>> domainsToSudokuCells = new HashMap<>();
         Map<Integer,List<SudokuCell>> highestDegrees = new HashMap<>();
         SudokuCell activeCell;
         int smallestDomainSize = size;
+        TreeSet<Integer> domainSizes;
 
         // Creating a Map with domainSize as keys and List of SudokuCells that have a domain size of domainSize
         for (SudokuCell[] row : sudoCells) {
@@ -144,76 +172,128 @@ public class Sudoku {
                 // Remove the ones that are already "done" (constants and ones already assigned)
                 if (sCell.getValue() == 0) {
                     int domainSize = sCell.domainSize();
-                    if (domainSize > 0) {
-                        if (smallestDomains.containsKey(domainSize)) {
-                            smallestDomains.get(domainSize).add(sCell);
-                        } else {
-                            smallestDomains.put(domainSize, new ArrayList<>());
-                        }
+                    if (!domainsToSudokuCells.containsKey(domainSize)) {
+                        domainsToSudokuCells.put(domainSize, new ArrayList<>());
                     }
+                    domainsToSudokuCells.get(domainSize).add(sCell);
                 }
             }
         }
 
-        for (int domSize : smallestDomains.keySet()) {
-            if (domSize < smallestDomainSize) {
-                smallestDomainSize = domSize;
-            }
-        }
+        domainSizes = new TreeSet<>(domainsToSudokuCells.keySet());
 
+//        for (int domSize : smallestDomains.keySet()) {
+//            if (domSize < smallestDomainSize) {
+//                smallestDomainSize = domSize;
+//            }
+//        }
 
-        List<SudokuCell> candidates = smallestDomains.get(smallestDomainSize);
+        // Traverse domainSizes in ascending order
+        for (Integer domSize : domainSizes) {
 
+//            List<SudokuCell> candidates = smallestDomains.get(smallestDomainSize);
+            List<SudokuCell> candidates = domainsToSudokuCells.get(domSize);
 
-        int highestDegree;
-        int degree;
+            TreeSet<Integer> degrees = new TreeSet<>();
 
-        if (candidates.size() > 1) {
-            // If there is a tie for the smallest domain, choose the one with the highest degree
-            activeCell = candidates.get(0); // Init activeCell
-            highestDegree = candidates.get(0).degree();
-            for (SudokuCell sCell : candidates) {
-                degree = sCell.degree();
-                if (degree > highestDegree) {
-                    highestDegree = degree;
-                    activeCell = sCell;
+//            if (candidates.size() >= 1) {
+                // If there is a tie for the smallest domain, choose the one with the highest degree
+                for (SudokuCell sCell : candidates) {
+                    degrees.add(sCell.degree());
                 }
-            }
-        } else if (candidates.size() == 1) {
-            // If there is no tie for the smallest domain, simply choose the smallest domain
-            activeCell = smallestDomains.get(smallestDomainSize).get(0);
-        } else {
-            // This is invalid. Backtrack
-            System.out.println("Backtrack1");
-            return false;
-        }
+//            } else if (candidates.size() == 1) {
+//                /mmmmmmmmmmm/ If there is no tie for the smallest domain, simply choose the smallest domain
+//                activeCell = smallestDomains.get(smallestDomainSize).get(0);
+//            } else {
+//                // This is invalid. Backtrack
+//            System.out.println("Backtrack1");
+//                return false;
+//            }
 
-        Set<Integer> domain = activeCell.getDomain();
+            for (Integer deg : degrees.descendingSet()) { // Traverse the degrees in descending order
+                for (SudokuCell candidate : candidates) { // Process the cells with the degree
+                    if (candidate.degree() != deg) { // We need to find a cell with degree deg
+                        continue;
+                    }
 
-        System.out.println(domain);
+                    Set<Integer> domain = candidate.getDomain();
+                    for (Integer choice : domain) {
+                        candidate.assignValue(choice);
+                        if (isValid()) {
+                            if (!solve()) {  // recurse
+                                candidate.clear();
+                            }
+                        } else {
+                            // If not valid, clear it and check another choice in the domain
+                            candidate.clear();
+                        }
 
-        for (Integer choice : domain) {
-            activeCell.assignValue(choice);
-            if (isValid()) {
-                System.out.println(choice);
-                System.out.println(this);
-                if (!solve(sudoCells)) {  // recurse
-                    activeCell.clear();
+                    }
+
+                    if (isFinished()) {
+                        return true;
+                    }
+//                    System.out.println("Bad Candidate");
                 }
-            } else {
-                // If not valid, clear it and check another choice in the domain
-                activeCell.clear();
+                System.out.println("Next Degree");
+            }
+            System.out.println("Next Domain");
+        }
+
+//        System.out.println(this);
+//        System.out.println("Done?");
+        System.out.println(correctness());
+        return isFinished();
+
+//        Set<Integer> domain = activeCell.getDomain();
+//
+////        System.out.println(domain);
+//
+//        for (Integer choice : domain) {
+//            activeCell.assignValue(choice);
+//                if (isValid()) {
+////                    System.out.println(choice);
+////                    System.out.println(this);
+//                    if (!solve(sudoCells)) {  // recurse
+//                        activeCell.clear();
+//                    }
+//                } else {
+//                    // If not valid, clear it and check another choice in the domain
+//                    activeCell.clear();
+//                }
+//
+//        }
+//
+//        if (!isValid()) {
+////            activeCell.clear();
+////            System.out.println("Backtrack2");
+//            return false;
+//        } else {
+//            return true;
+//        }
+//
+////        if (!isFinished()) {
+////            return solve();
+////        } else {
+////            return true;
+////        }
+    }
+
+    public double correctness() {
+        double count = 0;
+
+        for (int i = 0; i < mat.length; i+=1) {
+            for (int j = 0; j < mat.length; j+=1) {
+                if (mat[i][j].getValue() == correct[i][j]) {
+                    count += 1;
+                } else if (mat[i][j].getValue() != 0) {
+                    count -= 1;
+                }
+
             }
         }
 
-        if (!isValid()) {
-//            activeCell.clear();
-            System.out.println("Backtrack2");
-            return false;
-        } else {
-            // Done?
-            return true;
-        }
+        return (count - 28) / (81-28);
     }
 
     public Integer[][] to2DIntegerArray() {

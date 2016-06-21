@@ -103,7 +103,16 @@ public class Main extends Application {
         }
 
         sudoku = new Sudoku(preset);
+
+//        while (!sudoku.isFinished())  {
+//            sudoku.solve();
+//            System.out.println(sudoku);
+
+//        }
+
+
         System.out.println(sudoku.solve());
+        System.out.println(sudoku.isFinished());
         System.out.println(sudoku);
         System.out.println("Done");
     }
