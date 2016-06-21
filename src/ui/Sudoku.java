@@ -63,6 +63,12 @@ public class Sudoku {
 
 
         _initGroups();
+
+        for (SudokuCell[] row : mat) {
+            for (SudokuCell sCell : row) {
+                sCell.updateDomain();
+            }
+        }
     }
 
     private void _initGroups() {
@@ -202,13 +208,15 @@ public class Sudoku {
                     degrees.add(sCell.degree());
                 }
 //            } else if (candidates.size() == 1) {
-//                /mmmmmmmmmmm/ If there is no tie for the smallest domain, simply choose the smallest domain
+//                // If there is no tie for the smallest domain, simply choose the smallest domain
 //                activeCell = smallestDomains.get(smallestDomainSize).get(0);
 //            } else {
 //                // This is invalid. Backtrack
 //            System.out.println("Backtrack1");
 //                return false;
 //            }
+
+            System.out.println(degrees);
 
             for (Integer deg : degrees.descendingSet()) { // Traverse the degrees in descending order
                 for (SudokuCell candidate : candidates) { // Process the cells with the degree
@@ -221,6 +229,7 @@ public class Sudoku {
                         candidate.assignValue(choice);
                         if (isValid()) {
                             if (!solve()) {  // recurse
+                                System.out.println("Backtrack1");
                                 candidate.clear();
                             }
                         } else {
@@ -235,9 +244,9 @@ public class Sudoku {
                     }
 //                    System.out.println("Bad Candidate");
                 }
-                System.out.println("Next Degree");
+                System.out.println("Next Degree " + degrees.size());
             }
-            System.out.println("Next Domain");
+            System.out.println("Next Domain " + domainSizes.size());
         }
 
 //        System.out.println(this);

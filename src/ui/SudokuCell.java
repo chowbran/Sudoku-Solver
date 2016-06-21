@@ -188,7 +188,24 @@ public class SudokuCell implements Comparable<SudokuCell> {
     }
 
     public int degree() {
-        return size - domainSize();
+        int degree = 0;
+        List<SudokuCell> neighbours = new ArrayList<>();
+        neighbours.addAll(cellGroup);
+        neighbours.addAll(horizontalGroup);
+        neighbours.addAll(verticalGroup);
+
+        for (SudokuCell neighbour : neighbours) {
+            if (neighbour.getValue() == 0) {
+                degree += 1;
+            }
+        }
+
+        if (this.getValue() == 0) {
+            degree -= 3; // We subtract by - 3 because this counts our self 3 times
+        }
+
+        return degree;
+//        return size - domainSize();
     }
 
     public Set<Integer> getDomain() {

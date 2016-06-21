@@ -110,6 +110,11 @@ public class Main extends Application {
 
 //        }
 
+//        for (SudokuCell[] row : sudoku.getSudokuCells()) {
+//            for (SudokuCell sCell : row) {
+//                System.out.println(sCell.getValue() + " Degree: " + sCell.degree() + ", Domain Size: " + sCell.domainSize());
+//            }
+//        }
 
         System.out.println(sudoku.solve());
         System.out.println(sudoku.isFinished());
